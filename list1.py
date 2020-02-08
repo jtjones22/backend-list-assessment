@@ -26,9 +26,11 @@
 
 def match_ends(words):
     """Your code goes here.  Edit this docstring."""
-    return
-
-
+    count = 0
+    for word in words:
+        if len(word) >= 2 and word[0] == word[-1]:
+            count += 1
+    return count
 # B. front_x
 # Given a list of strings, return a list with the strings
 # in sorted order, except group all the strings that begin with 'x' first.
@@ -36,10 +38,20 @@ def match_ends(words):
 # ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
+
+
 def front_x(words):
     """Your code goes here.  Edit this docstring."""
-    return
+    sorted_list = []
+    other_list = []
+    for word in words:
+        if word.startswith("x"):
+            sorted_list.append(word)
+            sorted_list.sort()
+        else:
+            other_list.append(word)
 
+    return sorted(sorted_list) + sorted(other_list)
 
 # C. sort_last
 # Given a list of non-empty tuples, return a list sorted in increasing
@@ -47,9 +59,12 @@ def front_x(words):
 # e.g. [(1, 7), (1, 3), (3, 4, 5), (2, 2)] yields
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Hint: use a custom key= function to extract the last element form each tuple.
+
+
 def sort_last(tuples):
     """Your code goes here.  Edit this docstring."""
-    return
+    tuples.sort(key=lambda x: x[-1])
+    return tuples
 
 
 # Simple provided test() function used in main() to print
